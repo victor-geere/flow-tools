@@ -17,6 +17,7 @@ export default function Home() {
           h={16}
           p={5}
           color='white'
+          cursor='pointer'
           onClick={() => history.push("/ft")}
         >
           Fungible Token
@@ -28,9 +29,10 @@ export default function Home() {
           h={16}
           p={5}
           color='white'
+          cursor='pointer'
           onClick={() => history.push("/ft")}
         >
-          NonFungbile Token
+          NonFungible Token
       </Box>
       </Flex>
 

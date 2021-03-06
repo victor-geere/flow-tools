@@ -1,10 +1,18 @@
 import { ReactNode } from "react"
+import * as fcl from "@onflow/fcl";
 
 export interface UserInfo {
     loggedIn: boolean
     addr:string
     cid: string
 
+}
+
+export interface Tools {
+    logIn: Function,
+    logOut: Function,
+    signUp: Function,
+    changeUser: Function
 }
 
 export interface SubmitFuncType {

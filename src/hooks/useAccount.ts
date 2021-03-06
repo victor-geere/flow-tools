@@ -30,11 +30,11 @@ export const useAccountInfo = (address: string) => {
       setStatus(IDLE);
     },
   };
-}
+};
 
 export const useCurrentContractInfo = () => {
   
-}
+};
 
 // export const accountInfo = atom({
 //     key: "USER_INFO",

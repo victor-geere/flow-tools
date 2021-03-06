@@ -1,5 +1,5 @@
 // theme.js
-import { extendTheme } from "@chakra-ui/react"
+import {extendTheme} from "@chakra-ui/react"
 
 // Global style overrides
 import styles from "./styles"
@@ -12,30 +12,27 @@ import Button from "./components/button"
 
 const colors = {
   primary: '#000',
-  secondary:{
-
+  secondary: {},
+  background: {
+    light: 'white',
+    dark: 'black'
   },
-  background:{
-    light:'white',
-    dark:'black'
+  border: {
+    light: 'gray',
+    dark: 'gray'
   },
-  border:{
-    light:'gray',
-    dark:'gray'
-  },
-  text:{
-    light:'black',
-    dark:'white'
+  text: {
+    light: 'black',
+    dark: 'white'
   }
-
-}
+};
 
 const overrides = {
   colors,
   // colorMode config
   config: {
     useSystemColorMode: false,
-    initialColorMode: "light",
+    initialColorMode: "dark",
   },
   styles,
   borders,
@@ -44,6 +41,6 @@ const overrides = {
     Button,
     // Other components go here
   },
-}
+};
 
 export default extendTheme(overrides)

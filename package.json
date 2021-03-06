@@ -2,6 +2,15 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-app-env start",
+    "build": "react-app-env build",
+    "deploy": "firebase deploy",
+    "test": "react-app-env test",
+    "eject": "react-app-env eject",
+    "dev-wallet": "PK=707f53bf5e511ffc93ab91054285a59f6bbc68a8a0255dfeee08c4e63af54d3b fcl-wallet",
+    "dev-wallet-win": "SET PK=84f82df6790f07b281adb5bbc848bd6298a2de67f94bdfac7a400d5a1b893de5 && fcl-wallet"
+  },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.3",
     "@chakra-ui/react": "^1.1.4",
@@ -45,14 +54,6 @@
     "sha3": "^2.1.4",
     "web-vitals": "^0.2.2",
     "yup": "^0.32.8"
-  },
-  "scripts": {
-    "start": "react-app-env start",
-    "build": "react-app-env build",
-    "test": "react-app-env test",
-    "eject": "react-app-env eject",
-    "dev-wallet": "PK=707f53bf5e511ffc93ab91054285a59f6bbc68a8a0255dfeee08c4e63af54d3b fcl-wallet",
-    "dev-wallet-win": "SET PK=84f82df6790f07b281adb5bbc848bd6298a2de67f94bdfac7a400d5a1b893de5 && fcl-wallet"
   },
   "eslintConfig": {
     "extends": "react-app"

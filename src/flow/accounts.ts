@@ -1,13 +1,13 @@
 import * as fcl from '@onflow/fcl'
 import * as t from '@onflow/types'
 import * as sdk from '@onflow/sdk'
-import { Account } from '../constants/types'
-import { SerializableParam } from 'recoil'
-import { toast, invariant } from '../utils'
-import { genKeys } from '../utils/crypto'
-import { fetchAccount } from './fetchFlowInfo'
-import { tx } from '../utils'
-import { template as createAccount } from '@onflow/six-create-account'
+import {Account} from '../constants/types'
+import {SerializableParam} from 'recoil'
+import {toast, invariant} from '../utils'
+import {genKeys} from '../utils/crypto'
+import {fetchAccount} from './fetchFlowInfo'
+import {tx} from '../utils'
+import {template as createAccount} from '@onflow/six-create-account'
 
 export const createFlowAccount = async (opts = {}) => {
   const keys = await genKeys()
@@ -59,37 +59,37 @@ export const createFlowAccount = async (opts = {}) => {
     fcl.authorizations([fcl.authz]),
     fcl.payer(fcl.authz),
     fcl.args([sdk.arg(keys.flowKey, t.String)]),
-  ])
+  ]);
 
-  console.log(JSON.stringify(response))
+  console.log(JSON.stringify(response));
   const accountData = {
     publicKey: keys.publicKey,
     flowKey: keys.flowKey,
     privateKey: keys.privateKey,
-  }
-  console.log(accountData)
+  };
+  console.log(accountData);
 
-  const { events } = await fcl.tx(response).onceSealed()
+  const {events} = await fcl.tx(response).onceSealed();
   const accountCreatedEvent = events.find(
     (d: any) => d.type === 'flow.AccountCreated',
-  )
-  invariant(accountCreatedEvent, 'No flow.AccountCreated found', events)
-  let addr = accountCreatedEvent.data.address
+  );
+  invariant(accountCreatedEvent, 'No flow.AccountCreated found', events);
+  let addr = accountCreatedEvent.data.address;
   // a standardized string format for addresses is coming soon
   // our aim is to make them as small as possible while making them unambiguous
-  addr = addr.replace(/^0x/, '')
-  invariant(addr, 'an address is required')
+  addr = addr.replace(/^0x/, '');
+  invariant(addr, 'an address is required');
 
   const account = await fetchAccount(addr)
-  const key = account.keys.find((d: any) => d.publicKey === keys.publicKey)
+  const key = account.keys.find((d: any) => d.publicKey === keys.publicKey);
   invariant(
     key,
     'could not find provided public key in on-chain flow account keys',
-  )
+  );
 
   return {
     addr,
     ...accountData,
     keyId: key.index,
   }
-}
+};
